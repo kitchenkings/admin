@@ -1,0 +1,225 @@
+@import "tailwindcss";
+
+/* Zomato-style theme */
+:root {
+  --zomato-red: #E23744;
+  --zomato-red-dark: #CB202D;
+  --zomato-red-light: #FF6B6B;
+  --zomato-green: #3AB757;
+  --zomato-yellow: #F5A623;
+  --zomato-orange: #EF8F38;
+  --zomato-gray: #9C9C9C;
+  --zomato-dark: #1C1C1C;
+  --zomato-light-bg: #F8F8F8;
+}
+
+* {
+  font-family: 'Poppins', system-ui, -apple-system, sans-serif;
+}
+
+body {
+  background-color: #F8F8F8;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom animations */
+@keyframes slide-up {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-down {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes pulse-ring {
+  0% {
+    box-shadow: 0 0 0 0 rgba(226, 55, 68, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(226, 55, 68, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(226, 55, 68, 0);
+  }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}
+
+@keyframes bounce-in {
+  0% { transform: scale(0); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+.animate-slide-up {
+  animation: slide-up 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.animate-slide-down {
+  animation: slide-down 0.3s ease-out;
+}
+
+.animate-fade-in {
+  animation: fade-in 0.25s ease-out;
+}
+
+.animate-pulse-ring {
+  animation: pulse-ring 1.5s infinite;
+}
+
+.animate-shake {
+  animation: shake 0.5s ease-in-out;
+}
+
+.animate-bounce-in {
+  animation: bounce-in 0.4s ease-out;
+}
+
+/* Active scale */
+.active\:scale-98:active {
+  transform: scale(0.98);
+}
+
+.active\:scale-95:active {
+  transform: scale(0.95);
+}
+
+/* Safe area for mobile */
+.safe-area-bottom {
+  padding-bottom: env(safe-area-inset-bottom, 0.75rem);
+}
+
+.safe-area-top {
+  padding-top: env(safe-area-inset-top, 0);
+}
+
+/* Hide scrollbar but keep functionality */
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #E0E0E0;
+  border-radius: 2px;
+}
+
+/* Prevent text selection on buttons */
+button {
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Better touch experience */
+* {
+  touch-action: manipulation;
+}
+
+/* Zomato Red Gradient */
+.zomato-gradient {
+  background: linear-gradient(135deg, #E23744 0%, #CB202D 100%);
+}
+
+/* Card shadow */
+.card-shadow {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.card-shadow-lg {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+}
+
+/* Status colors */
+.status-new {
+  background: linear-gradient(135deg, #E23744 0%, #CB202D 100%);
+}
+
+.status-preparing {
+  background: linear-gradient(135deg, #F5A623 0%, #EF8F38 100%);
+}
+
+.status-ready {
+  background: linear-gradient(135deg, #3AB757 0%, #2E9447 100%);
+}
+
+/* Number input hide spinners */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+/* Line clamp */
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Overscroll behavior */
+html, body {
+  overscroll-behavior-y: contain;
+}
+
+/* Active states for mobile */
+.active\:bg-gray-50:active {
+  background-color: rgb(249, 250, 251);
+}
+
+/* Ring focus states */
+input:focus, textarea:focus {
+  outline: none;
+}
